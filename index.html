@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html class="scroll-smooth ">
+
+<head>
+    <title> Portfolio Website - About Tushar Patel </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/128/1940/1940611.png" type="image/x-icon">
+</head>
+
+<body class="overflow-x-hidden font-Outfit leading-8 ">
+
+    <div class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] ">
+        <img src="images/header-bg-color.png" alt="" class="w-full">
+    </div>
+    <!-------Navbar---------->
+    <nav class="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex item-center justify-between z-50" style="margin-top: -150px;">
+
+        <div class="text-xl font-bold flex justify-center items-center">
+            Tushar<span class="text-purple-500">Patel.</span>
+        </div>
+
+
+
+        <ul class="hidden md:flex item-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm
+         bg-opacity-50 font-Ovo">
+            <li><a href="#top"> Home </a></li>
+            <li><a href="#about"> About me </a></li>
+            <li><a href="#services"> Services </a></li>
+            <li><a href="#work"> My Work </a></li>
+            <li><a href="#contact"> Contact me </a></li>
+        </ul>
+
+        <div class="flex items-center gap-4">
+
+            <!-- <button><img src="images/moon_icon.png" alt="" class="w-6"></button> -->
+
+            <a href="#contact" class="hidden lg:flex item-center gap-3 px-10 py-2.5 border border-gray-500
+         rounded-full ml-3 font-Ovo">Contact
+            </a>
+
+            <button class="block md:hidden ml-3" onclick="openMenu()">
+                <img src="images/menu-black.png" alt="" class="w-6">
+            </button>
+
+        </div>
+    </nav>
+
+    <!-- ------Mobile Menu-------- -->
+    <ul id="sideMenu" class="flex md:hidden flex-col gap-4 py-20 px-10 fixed 
+         -right-64 button-0 top-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 font-Ovo">
+
+        <div class="absolute top-6 right-6" onclick="closeMenu()">
+            <img src="images/close-black.png" alt="" class="w-5 cursor-pointer">
+        </div>
+
+        <li><a href="#top" onclick="closeMenu()"> Home </a></li>
+        <li><a href="#about" onclick="closeMenu()"> About me </a></li>
+        <li><a href="#services" onclick="closeMenu()"> Services </a></li>
+        <li><a href="#work" onclick="closeMenu()"> My Work </a></li>
+        <li><a href="#contact" onclick="closeMenu()"> Contact me </a></li>
+    </ul>
+
+
+    <!-- ----- Header ----- -->
+
+    <div class="w-11/12 max-w-3xl text-center mx-auto mt-36 flex flex-col  items-center justify-center gap-4">
+
+        <img src="Images/Profile photo.png" alt="" class="rounded-full w-32">
+        <!-- Hi Tushar patel image circle wali-->
+
+        <h3 class="flex item-center justify-center gap-2 text-3xl md:text-2xl mb-3 font-Ovo">Hi! I'm Tushar Patel
+            <img src="https://cdn.iconscout.com/icon/premium/png-512-thumb/hey-4743904-3938894.png?f=webp&w=256" alt="" class="w-8 h-8">
+        </h3>
+
+        <h1 class="text-3xl sm:text-6xl lg:text-[66px] font-Ovo"> I'm a web Developer </h1>
+
+        <p class="max-w-2xl mx-auto font-Ovo">I am a MERN Stack enthusiast and have a strong foundation in building web
+            applications
+            using MERN technologies</p>
+
+        <div class="flex flex-col sm:flex-row item-center gap-4 mt-4">
+            <a href="#contact" class="px-10 py-3 border rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] 
+                text-white flex items-center gap-2"> Contact me
+                <img src="https://cdn-icons-png.flaticon.com/128/2859/2859692.png" alt="" class="w-6 h-6"></a>
+
+            <a href="Images/TusharPatel Developer.pdf" download
+                class="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white"> Resume
+                <img src="https://cdn-icons-png.flaticon.com/128/1092/1092000.png" alt="" class="w-6 h-6"></a>
+
+        </div>
+
+    </div>
+
+    <!-- ----------about me ----------- -->
+    <div id="about" class="w-full px-[12%] py-10 scroll-mt-20">
+        <h4 class="text-center mb-2 text-lg font-Ovo"> Introduction </h4>
+        <h2 class="text-center text-5xl font-Ovo"> About me </h2>
+
+
+        <div class="flex w-full flex-col lg:flex-row item center gap-20 my-20">
+            <div class="max-w-max mx-auto relative">
+                <!-- Badi images About me-->
+                <img src="Images/Profile photo.png" alt=""
+                    class="w-64 sm:w-80 rounded-2xl max-w-none ">
+
+
+
+            </div>
+
+            <div class="flex-1">
+                <p class="mb-10 max-w-2xl font-Ovo">
+                    A MERN Developer and B.Tech ECE student, passionate
+                    about building efficient and scalable web applications. With a strong foundation in <span
+                        class=" font-medium text-slate-500"> HMTL,CSS,JavaScript,ReactJS,MongoDB,ExpressJS,NodeJS</span>
+                    I have developed projects like a  Password-Manager to manage the different-different password. <br> <br>
+
+
+                    Currently, I'm expanding my skills by learning DSA technologies to grow into a
+                    Professional Full-Stack Developer. I'm dedicated to continuously improving and exploring new
+                    technologies
+                    to create impactful solutions. </p>
+
+                <ul class="grid grid-cols-auto sm:grid-cols-auto gap-6 max-w-2xl">
+                    <!--ABOUT Skills-->
+                    <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer 
+                        hover:bg-lighthover hover:-translate-y-1 duration-500 hover:shadow-dark">
+
+                        <img src="https://cdn-icons-png.flaticon.com/128/10069/10069007.png" alt="" class="w-7 wt-3">
+                        <h3 class="my-4 font-seibold text-gray-700">Skills</h3>
+                        <p class="text-gray-600 text-sm">C/C++, JavaScript, HTML/CSS,
+                            Next JS, Auth JS, Bootstrap, Tailwind CSS, Git, GitHub, Figma
+                            L, Node.js, Express.js, React.js, MongoDB </p>
+
+                    </li>
+                    <!---ABOUT Eduction-->
+                    <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer 
+                        hover:bg-lighthover hover:-translate-y-1 duration-500 hover:shadow-dark">
+
+                        <img src="https://cdn-icons-png.flaticon.com/128/1940/1940611.png" alt="" class="w-7 wt-3">
+                        <h3 class="my-4 font-seibold text-gray-700"> Education</h3>
+                        <ul class="text-gray-600 text-sm">
+                            <li>B.Tech in ECE - 7.1</li>
+                            <li>12th MPBSE - 77%</li>
+                            <li>10th CBSE - 82%</li>
+                        </ul>
+
+                    </li>
+                    <!---ABOUT Projects-->
+                    <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer 
+                        hover:bg-lighthover hover:-translate-y-1 duration-500 hover:shadow-dark">
+
+                        <img src="https://cdn-icons-png.flaticon.com/128/18598/18598612.png" alt="" class="w-7 wt-3">
+                        <h3 class="my-4 font-seibold text-gray-700"> Project</h3>
+                        <ol class="text-gray-600 text-sm">
+                            <li> <a href="https://github.com/tushar6263/Password-Manager">1. CreatorHub </a> </li>
+                            <li> <a href="https://github.com/tushar6263/Spotify-Web-Player-Clone-">
+                                    2.BugBuddy </a> </li>
+                            <li> <a href="https://github.com/tushar6263/Patreon-Clone-FullStack-Project">
+                                    3.Find-your-love </a> </li>
+                            <li> <a href="https://github.com/tushar6263"
+                                    class="text-slate-900 font-semibold hover:underline">Learn More</a></li>
+
+                        </ol>
+
+                    </li>
+
+                </ul>
+                <h4 class="my-6 text-gray-700 font-Ovo"> Tools i use</h4>
+                <ul class="flex item-center gap-3 sm:gap-5">
+                    <li class="flex item-center justify-center w-12 sm:w-14 aspect-square 
+                        border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+                        <img src="https://miro.medium.com/v2/resize:fit:900/1*J31dJXA_au1ihqI7jxGMaQ.jpeg"
+                            alt="" class="w-6 sm:w-7 m-1.5">
+                    </li>
+
+                    <li class="flex item-center justify-center w-12 sm:w-14 aspect-square 
+                        border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS62LVhts8-ERiNmlrfHQShVXasUYH38KKSRw&s"
+                            alt="" class=" m-2.5 w-6 sm:w-7">
+                    </li>
+
+                    <li class="flex item-center justify-center w-12 sm:w-14 aspect-square 
+                        border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXp1dj5t9mzbsWoKNWSXW9UKkgyF45KAjuRA&s"
+                            alt="" class="m-2.5 w-5 sm:w-7">
+                    </li>
+
+                    <li class="flex item-center justify-center w-12 sm:w-14 aspect-square 
+                    border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgrNRXpqTDvCfa43rwYd09pt_MpJLV41HrPw&s"
+                            alt="" class="w-5 sm:w-7 m-2.5">
+                    </li>
+
+                    <li class="flex item-center justify-center w-12 sm:w-14 aspect-square 
+                        border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwh-2btrw1P54k-yIKqG_lsB_SVc48vGzWZQ&s"
+                            alt="" class="w-5 m-2.5 sm:w-7">
+                    </li>
+
+                </ul>
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- --------Services----------- -->
+    <div id="services" class="w-full px-[12%] py-10 scroll-mt-20">
+        <h4 class="text-center mb-2 text-lg font-Ovo"> What i offer</h4>
+        <h2 class="text-center  text-5xl font-Ovo">My services</h2>
+        <div class="flex item-center justify-center">
+            <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
+                A MERN Stack Developer and B.Tech student, passionate about building efficient and
+                scalable web applications. With a strong foundation in <span class=" font-medium text-purple-500">
+                    HMTL,CSS,JavaScript,ReactJS,MongoDB,ExpressJS,NodeJS .</span> I have developed projects like a
+                Student
+                Password-Manager,Patreon Clone etc with secure role-based access.
+                <br><br>
+                Currently, expanding skills by learning front-end technologies to grow into a Full-Stack Developer.
+                Dedicated to continuously improving and exploring new technologies to create impactful solutions.
+
+            </p>
+        </div>
+        <div class="grid grid-cols-auto gap-6 my-10">
+            <div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-dark
+                    cursor-pointer hover:bg-lighthover hover:-translate-y-1 duration-500">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNe9556eoOf6LCbUG0T8hJaoNX0v1Ja2KFfwNUAqBEd4CGQ3iqZUSPowkRmShNJRy-oNU&usqp=CAU"
+                    alt="" width="60" height="60">
+                <h3 class="text-lg my-4 text-gray-700">Full Stack development</h3>
+                <p class="text-sm text-gray-600 leading-5">
+                    Full-stack development using MERN (MongoDB, Express.js, React.js, Node.js) involves building web
+                    applications with a consistent JavaScript stack. MongoDB handles the database, Express.js manages
+                    the backend server, React.js develops dynamic front-end user interfaces, and Node.js runs the server
+                    environment. Together, MERN simplifies efficient, scalable, and responsive web development
+                    processes. </p>
+
+            </div>
+
+            <div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-dark
+                    cursor-pointer hover:bg-lighthover hover:-translate-y-1 duration-500">
+                <img src="https://www.simplihire.com/wp-content/uploads/2023/09/ux-ui-logo.png" alt="" width="60"
+                    height="60">
+                <h3 class="text-lg my-4 text-gray-700">UI/UX Designer</h3>
+                <p class="text-sm text-gray-600 leading-5">UI/UX design using Canva and Figma focuses on creating
+                    visually appealing and user-friendly interfaces. Canva simplifies graphic design with its intuitive
+                    drag-and-drop tools, while Figma offers powerful collaborative features for prototyping and
+                    interface design. Together, they streamline designing impactful, responsive, and user-centric
+                    digital experiences.</p>
+
+
+            </div>
+            <div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-dark
+                    cursor-pointer hover:bg-lighthover hover:-translate-y-1 duration-500">
+                <img src="https://dotnettrickscloud.blob.core.windows.net/article/frontend/3720231003225754.webp" alt=""
+                    width="40" height="40">
+                <h3 class="text-lg my-4 text-gray-700">Frontend/Backend Developer</h3>
+                <p class="text-sm text-gray-600 leading-5">Full-stack development combines backend technologies like
+                    Node.js, Express.js, MongoDB, and Postman with frontend tools like React.js, JavaScript, Tailwind
+                    CSS, Bootstrap, and HTML. Together, they enable creating efficient, scalable, secure server-side
+                    applications and responsive, interactive, user-friendly interfaces for seamless web experiences.</p>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- --------work--------- -->
+    <div id="work" class="w-full px-[12%] py-10 scroll-mt-20">
+        <h4 class="text-center mb-2 text-lg font-Ovo"> My portfolio</h4>
+        <h2 class="text-center  text-5xl font-Ovo">My latest work</h2>
+        <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
+            Welcome to my software development portfolio! Explore my projects that demonstrate
+            expertise in Frontend developer,UI/UX Designer,back-end developer, and responsive web applications,
+            showcasing my journey as a developer.
+        </p>
+
+        <div class="grid grid-cols-1 gap-6 my-10 ">
+            <!-- Student Management System Box -->
+            <div class=" border border-gray-400 rounded-lg px-8 py-12 hover:shadow-dark
+                    cursor-pointer hover:bg-lighthover hover:-translate-y-1 duration-500 
+                    transition-all ">
+                <h2 class="text-2xl font-bold mb-4">E-Learning Website  for TTU pvt limit.</h2>
+                <p class="text-gray-400 mb-6">
+                    A comprehensive system to manage student data, including registration, payment mode, and
+                    role-based access for Admin, Teachers, and Students.
+                </p>
+                <p class="text-gray-400 mb-4">
+                    <span class="font-semibold">Technologies:-</span>Figma ,Canva HTML,CSS,Next JS,MongoDB etc..
+                </p>
+                <a href="https://github.com/rajkumarchaudhari123/NEXTJS.git"
+                    class="text-slate-900 font-semibold hover:underline">Learn More</a>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- --------Contact me--------- -->
+    <div id="contact" class="w-full px-[12%] py-10 scroll-mt-20">
+        <h4 class="text-center mb-2 text-lg font-Ovo"> Connected with me</h4>
+        <h2 class="text-center  text-5xl font-Ovo">Get in touch </h2>
+        <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
+            "I'd love to hear from you! Whether you have a question,
+            want to discuss a project, feel free to reach out to me using the details below.
+        </p>
+        <!-- GitHub -->
+        <div class=" flex items-center justify-center ">
+            <div class="flex flex-wrap justify-center items-center gap-4 p-4">
+                <!-- GitHub -->
+                <a href="https://github.com/tushar6263" target="_blank">
+                    <button type="button"
+                        class="text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none 
+                focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center">
+                        <svg class="w-4 h-4 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        GitHub
+                    </button>
+                </a>
+
+                <!-- LeetCode -->
+                <a href="https://leetcode.com/u/tushar626346/"
+                    class="text-white bg-[#FF4500] flex items-center  px-3.5 py-2.5 rounded-md font-medium text-sm "
+                    target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png"
+                        alt="LeetCode Logo" class="h-5 w-5 mr-2">
+                    LeetCode
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/tusharpatel626346/" target="_blank">
+                    <button type="button"
+                        class="text-white bg-[#0077B5] hover:bg-[#0077B5]/90 focus:ring-4 focus:outline-none 
+                focus:ring-[#0077B5]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center">
+                        <svg class="w-5 h-5 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M4.98 3.5a2.5 2.5 0 1 1-.001 5.001A2.5 2.5 0 0 1 4.98 3.5zM2 
+                        9h6v12H2zm7.7-5h4.2v2.1h.1c.6-1 2.1-2.1 4.3-2.1 4.6 0 5.5 3 5.5 
+                        6.9V21H18v-8.2c0-1.9-.1-4.3-3-4.3-3 0-3.5 2.2-3.5 4.4V21h-4.8z" />
+                        </svg>
+                        LinkedIn
+                    </button>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:developertusharpatel@gmail.com">
+                    <button type="button"
+                        class="text-white bg-[#5F9EA0] flex items-center px-3.5 py-2.5 rounded-md font-semibold text-sm">
+                        <img src="https://cdn-icons-png.flaticon.com/128/25/25647.png" alt="Email Icon"
+                            class="h-5 w-5 mr-2">
+                        Email
+                    </button>
+                </a>
+
+            </div>
+
+</body>
+
+</div>
+
+<!-- ----- footer ----- -->
+<div class="mt-20">
+    <div class="text-center">
+        <div class="text-xl font-bold ">
+            Tushar <span class="text-purple-500">Patel.</span>
+        </div>
+        <div class="w-max flex items-center gap-2 mx-auto">
+            <img src="https://cdn-icons-png.flaticon.com/128/646/646135.png" alt="" class="w-6">
+            developertusharpatel
+        </div>
+    </div>
+    <div class="text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] my-12 py-6">
+        <p>@ 2025 Tushar Patel. All rights reserved.</p>
+    </div>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+
+</html>
