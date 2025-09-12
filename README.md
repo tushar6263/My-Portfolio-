@@ -4,7 +4,7 @@ Welcome to my personal portfolio repository! 🎉 This portfolio showcases my sk
 
 ## 🌐 Live Demo
 
-You can view the live version of my portfolio here: [My Portfolio](https://my-portfolio-iota-rust-64.vercel.app/)
+You can view the live version of my portfolio here: [My Portfolio](https://my-portfolio-nine-pied-47.vercel.app/)
 
 
 ---
