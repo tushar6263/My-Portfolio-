@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -8,34 +8,217 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/128/1940/1940611.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Ovo&display=swap" rel="stylesheet">
+    <style>
+        /* ── THEME VARIABLES ── */
+        [data-theme="light"] {
+            --bg: #ffffff;
+            --bg-secondary: #f9fafb;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --border: #d1d5db;
+            --nav-bg: rgba(255,255,255,0.7);
+            --card-hover: #f9fafb;
+            --hr: #e5e7eb;
+            --sidemenu-bg: #fff1f2;
+            --footer-border: #9ca3af;
+            --toggle-bg: #1f2937;
+        }
+        [data-theme="dark"] {
+            --bg: #0d0d0d;
+            --bg-secondary: #1a1a1a;
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --border: #374151;
+            --nav-bg: rgba(15,15,15,0.75);
+            --card-hover: #1a1a1a;
+            --hr: #1f2937;
+            --sidemenu-bg: #111111;
+            --footer-border: #374151;
+            --toggle-bg: #a855f7;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        header {
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(10px);
+        }
+        nav.desktop-nav {
+            background-color: var(--nav-bg);
+        }
+        #sideMenu {
+            background-color: var(--sidemenu-bg);
+        }
+        .card {
+            border-color: var(--border);
+            transition: background-color 0.3s, border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            background-color: var(--card-hover);
+        }
+        hr {
+            border-color: var(--hr);
+        }
+        .text-gray-700 { color: var(--text-primary) !important; }
+        .text-gray-600 { color: var(--text-secondary) !important; }
+        .text-gray-500 { color: var(--text-secondary) !important }
+        .text-gray-400 { color: var(--text-secondary) !important; }
+        .text-gray-800 { color: var(--text-primary) !important; }
+        .border-gray-400 { border-color: var(--border) !important; }
+        .border-gray-500 { border-color: var(--border) !important; }
+        .bg-white { background-color: var(--bg) !important; }
+        .hover\:bg-gray-100:hover { background-color: var(--bg-secondary) !important; }
+        .hover\:bg-gray-50:hover { background-color: var(--card-hover) !important; }
+        .border-t { border-color: var(--footer-border) !important; }
+
+        /* Toggle Button */
+        .theme-toggle-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            border: 1.5px solid var(--border);
+            background-color: var(--bg);
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 13px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .theme-toggle-btn:hover {
+            border-color: #a855f7;
+            color: #a855f7;
+        }
+        .theme-toggle-btn .icon {
+            font-size: 15px;
+            transition: transform 0.4s ease;
+        }
+        .theme-toggle-btn:hover .icon {
+            transform: rotate(20deg);
+        }
+
+        /* Floating toggle (mobile-friendly) */
+        .floating-toggle {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 999;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #b820e6, #da7d20);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 15px rgba(184,32,230,0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s;
+        }
+        .floating-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(184,32,230,0.6);
+        }
+
+        /* Dark mode text tweaks */
+        [data-theme="dark"] .text-slate-500 { color: #94a3b8 !important; }
+        [data-theme="dark"] .text-slate-900 { color: #e2e8f0 !important; }
+        [data-theme="dark"] a { color: inherit; }
+        [data-theme="dark"] .font-Ovo { color: var(--text-primary); }
+
+        /* ── DARK MODE ICON INVERT ── */
+        /* Navbar & mobile menu icons */
+        [data-theme="dark"] header img,
+        [data-theme="dark"] #sideMenu img {
+            filter: invert(1);
+            transition: filter 0.3s ease;
+        }
+        /* Section icons: skills, education, projects cards */
+        [data-theme="dark"] ul.grid img,
+        [data-theme="dark"] .card img {
+            filter: invert(1);
+            transition: filter 0.3s ease;
+        }
+        /* Tool icons row */
+        [data-theme="dark"] ul.flex img {
+            filter: invert(1);
+            transition: filter 0.3s ease;
+        }
+        /* Services & work section icons */
+        [data-theme="dark"] .grid img {
+            filter: invert(1);
+            transition: filter 0.3s ease;
+        }
+        /* Footer email icon */
+        [data-theme="dark"] footer img {
+            filter: invert(1);
+            transition: filter 0.3s ease;
+        }
+        /* Hero section icons (profile photo, waving hand, contact/resume icons) */
+        [data-theme="dark"] #top img {
+            filter: invert(1);
+            transition: filter 0.3s ease;
+        }
+        /* EXCEPTIONS — colored brand logos/buttons should NOT be inverted */
+        [data-theme="dark"] a[href*="github"] img,
+        [data-theme="dark"] a[href*="leetcode"] img,
+        [data-theme="dark"] a[href*="linkedin"] img,
+        [data-theme="dark"] a[href*="mailto"] img,
+        [data-theme="dark"] a[download] img,
+        [data-theme="dark"] .floating-toggle,
+        [data-theme="dark"] #top img.rounded-full {
+            filter: none !important;
+        }
+        /* Profile photo & waving hand — keep natural */
+        [data-theme="dark"] #top img:first-child {
+            filter: none !important;
+        }
+        /* Contact me & Resume button icons — invert */
+        [data-theme="dark"] #top a img {
+            filter: invert(1) !important;
+        }
+        /* Waving hand emoji img — invert */
+        [data-theme="dark"] h1 img {
+            filter: invert(1) !important;
+        }
+    </style>
 </head>
 
-<body class="overflow-x-hidden font-Outfit leading-8 text-gray-800 bg-white m-0 p-0">
+<body class="overflow-x-hidden font-Outfit leading-8 text-gray-800 m-0 p-0">
+
     <header class="fixed top-0 left-0 w-full px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 transition-all duration-300">
         <div class="text-xl font-bold">
             Tushar<span class="text-purple-500">Patel.</span>
         </div>
 
-        <nav class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-Ovo">
+        <nav class="desktop-nav hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 shadow-sm bg-opacity-50 font-Ovo">
             <ul class="flex items-center gap-6 lg:gap-8">
-                <li><a href="#top" class="hover:text-purple-500">Home</a></li>
-                <li><a href="#about" class="hover:text-purple-500">About me</a></li>
-                <li><a href="#services" class="hover:text-purple-500">Services</a></li>
-                <li><a href="#work" class="hover:text-purple-500">My Work</a></li>
-                <li><a href="#contact" class="hover:text-purple-500">Contact me</a></li>
+                <li><a href="#top" class="hover:text-purple-500 transition-colors">Home</a></li>
+                <li><a href="#about" class="hover:text-purple-500 transition-colors">About me</a></li>
+                <li><a href="#services" class="hover:text-purple-500 transition-colors">Services</a></li>
+                <li><a href="#work" class="hover:text-purple-500 transition-colors">My Work</a></li>
+                <li><a href="#contact" class="hover:text-purple-500 transition-colors">Contact me</a></li>
             </ul>
         </nav>
 
-        <div class="flex items-center gap-4">
-            <a href="#contact" class="hidden lg:flex items-center gap-3 px-10 py-2 border border-gray-500 rounded-full ml-3 font-Ovo  bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white font-bold hover:opacity-80 transition-opacity">Contact</a>
+        <div class="flex items-center gap-3">
+
+            <a href="#contact" class="hidden lg:flex items-center gap-3 px-10 py-2 border border-gray-500 rounded-full ml-1 font-Ovo bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white font-bold hover:opacity-80 transition-opacity">Contact</a>
+
             <button class="block md:hidden ml-3" onclick="openMenu()" aria-label="Open mobile menu">
                 <img src="https://cdn-icons-png.flaticon.com/128/12445/12445421.png" alt="Menu icon" class="w-6">
             </button>
         </div>
-        
     </header>
 
-    <nav id="sideMenu" class="fixed md:hidden flex-col gap-4 py-20 px-10 top-0 right-0 w-64 h-screen bg-rose-50 z-50 transition-transform duration-500 transform translate-x-full font-Ovo">
+    <nav id="sideMenu" class="fixed md:hidden flex-col gap-4 py-20 px-10 top-0 right-0 w-64 h-screen z-50 transition-transform duration-500 transform translate-x-full font-Ovo">
         <button class="absolute top-6 right-6" onclick="closeMenu()" aria-label="Close mobile menu">
             <img src="https://cdn-icons-png.flaticon.com/128/391/391247.png" alt="Close menu icon" class="w-5 cursor-pointer">
         </button>
@@ -48,6 +231,11 @@
         </ul>
     </nav>
 
+    <!-- Floating toggle button (visible on mobile & desktop) -->
+    <button class="floating-toggle" onclick="toggleTheme()" aria-label="Toggle theme" id="floatingToggle">
+    
+    </button>
+
     <main>
         <section id="top" class="w-11/12 max-w-3xl text-center mx-auto pt-36 pb-12 flex flex-col items-center justify-center gap-4">
             <img src="Images/Profile photo.png" alt="Tushar Patel's professional headshot" class="rounded-full w-32">
@@ -55,9 +243,9 @@
                 Hi! I'm Tushar Patel
                 <img src="https://cdn.iconscout.com/icon/premium/png-512-thumb/hey-4743904-3938894.png?f=webp&w=256" alt="Waving hand icon" class="w-8 h-8">
             </h1>
-            <h2 class="text-3xl sm:text-6xl lg:text-[66px] font-Ovo"> I'm a Web Developer </h2>
+            <h2 class="text-3xl sm:text-6xl lg:text-[66px] font-Ovo"> I'm a Software Engineer </h2>
             <p class="max-w-2xl mx-auto font-Ovo text-gray-700">
-                I am a MERN Stack enthusiast and have a strong foundation in building web applications using MERN technologies.
+                I am a passionate MERN Stack Developer, Next.js enthusiast, and UI/UX Designer with a strong foundation in building modern, responsive, and user-friendly web applications.
             </p>
 
             <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
@@ -65,7 +253,7 @@
                     Contact me
                     <img src="https://cdn-icons-png.flaticon.com/128/2859/2859692.png" alt="Contact icon" class="w-6 h-6">
                 </a>
-                <a href="Images/Tushar Patel Developer.pdf" download class="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white hover:bg-gray-100 transition-colors">
+                <a href="/Tushar Patel - SDE.pdf" download class="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white hover:bg-gray-100 transition-colors">
                     Resume
                     <img src="https://cdn-icons-png.flaticon.com/128/1092/1092000.png" alt="Download icon" class="w-6 h-6">
                 </a>
@@ -73,18 +261,14 @@
         </section>
 
         <hr class="w-11/12 mx-auto my-12 border-gray-200">
-        
+
         <section id="about" class="w-full px-4 md:px-12 py-10 scroll-mt-20">
             <h4 class="text-center mb-2 text-lg font-Ovo text-gray-500">Introduction</h4>
             <h2 class="text-center text-5xl font-Ovo">About me</h2>
             <div class="flex w-full flex-col lg:flex-row items-center gap-20 my-20">
                 <div class="max-w-max mx-auto relative">
-  <img 
-    src="Images/Profile_Image2.png" 
-    alt="A professional portrait of Tushar Patel" 
-    class="w-40 h-40 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-2xl object-cover"
-  >
-</div>
+                    <img src="Images/Profile_Image2.png" alt="A professional portrait of Tushar Patel" class="w-40 h-40 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-2xl object-cover">
+                </div>
 
                 <div class="flex-1">
                     <p class="mb-10 max-w-2xl font-Ovo text-gray-700">
@@ -92,12 +276,12 @@
                         Currently, I'm expanding my skills by learning DSA technologies to grow into a Professional Full-Stack Developer. I'm dedicated to continuously improving and exploring new technologies to create impactful solutions.
                     </p>
                     <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-2xl">
-                        <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-gray-50 hover:-translate-y-1 duration-500 hover:shadow-lg">
+                        <li class="card border-[0.5px] rounded-xl p-6 cursor-pointer hover:-translate-y-1 duration-500 hover:shadow-lg">
                             <img src="https://cdn-icons-png.flaticon.com/128/10069/10069007.png" alt="Skills icon" class="w-7">
                             <h3 class="my-4 font-semibold text-gray-700">Skills</h3>
                             <p class="text-gray-600 text-sm">C/C++, JavaScript, HTML/CSS, Next JS, Auth JS, Bootstrap, Tailwind CSS, Git, GitHub, Figma, Node.js, Express.js, React.js, MongoDB</p>
                         </li>
-                        <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-gray-50 hover:-translate-y-1 duration-500 hover:shadow-lg">
+                        <li class="card border-[0.5px] rounded-xl p-6 cursor-pointer hover:-translate-y-1 duration-500 hover:shadow-lg">
                             <img src="https://cdn-icons-png.flaticon.com/128/1940/1940611.png" alt="Education icon" class="w-7">
                             <h3 class="my-4 font-semibold text-gray-700">Education</h3>
                             <ul class="text-gray-600 text-sm list-disc list-inside">
@@ -106,7 +290,7 @@
                                 <li>10th CBSE - 82%</li>
                             </ul>
                         </li>
-                        <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-gray-50 hover:-translate-y-1 duration-500 hover:shadow-lg">
+                        <li class="card border-[0.5px] rounded-xl p-6 cursor-pointer hover:-translate-y-1 duration-500 hover:shadow-lg">
                             <img src="https://cdn-icons-png.flaticon.com/128/18598/18598612.png" alt="Projects icon" class="w-7">
                             <h3 class="my-4 font-semibold text-gray-700">Project</h3>
                             <ol class="text-gray-600 text-sm list-disc list-inside">
@@ -119,19 +303,19 @@
                     </ul>
                     <h4 class="my-6 text-gray-700 font-Ovo font-semibold">Tools I use</h4>
                     <ul class="flex items-center gap-3 sm:gap-5">
-                        <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-                            <img src="https://static.vecteezy.com/system/resources/previews/060/194/939/non_2x/visual-studio-code-3d-icon-transparent-background-free-png.png" alt="Visual Studio Code icon" class=" sm:w-14 h-14">
+                        <li class="card flex items-center justify-center w-12 sm:w-14 aspect-square border rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+                            <img src="https://static.vecteezy.com/system/resources/previews/060/194/939/non_2x/visual-studio-code-3d-icon-transparent-background-free-png.png" alt="Visual Studio Code icon" class="sm:w-14 h-14">
                         </li>
-                        <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-                            <img src="https://static.vecteezy.com/system/resources/previews/042/165/847/non_2x/figma-3d-logo-black-background-free-png.png" alt="Figma icon" class="w sm:w-12 h-12 m-1">
+                        <li class="card flex items-center justify-center w-12 sm:w-14 aspect-square border rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+                            <img src="https://static.vecteezy.com/system/resources/previews/042/165/847/non_2x/figma-3d-logo-black-background-free-png.png" alt="Figma icon" class="sm:w-12 h-12 m-1">
                         </li>
-                        <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+                        <li class="card flex items-center justify-center w-12 sm:w-14 aspect-square border rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
                             <img src="https://images.icon-icons.com/3053/PNG/512/postman_macos_bigsur_icon_189815.png" alt="Postman icon" class="sm:w-10 h-10 m-2">
                         </li>
-                        <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
-                            <img src="https://images.icon-icons.com/3053/PNG/512/docker_macos_bigsur_icon_190231.png" alt="Docker icon" class=" sm:w-10 h-10 m-2">
+                        <li class="card flex items-center justify-center w-12 sm:w-14 aspect-square border rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+                            <img src="https://images.icon-icons.com/3053/PNG/512/docker_macos_bigsur_icon_190231.png" alt="Docker icon" class="sm:w-10 h-10 m-2">
                         </li>
-                        <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+                        <li class="card flex items-center justify-center w-12 sm:w-14 aspect-square border rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
                             <img src="https://cdn3d.iconscout.com/3d/free/thumb/free-github-3d-logo-png-download-2447911.png" alt="GitHub icon" class="sm:w-12 h-12 m-1">
                         </li>
                     </ul>
@@ -139,29 +323,29 @@
             </div>
         </section>
 
-        <hr class="w-11/12 mx-auto my-12 border-gray-200">
+        <hr class="w-11/12 mx-auto my-12">
 
         <section id="services" class="w-full px-4 md:px-12 py-10 scroll-mt-20">
             <h4 class="text-center mb-2 text-lg font-Ovo text-gray-500">What I offer</h4>
             <h2 class="text-center text-5xl font-Ovo">My services</h2>
             <div class="flex items-center justify-center">
                 <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo text-gray-700">
-                    A MERN Stack Developer and B.Tech student, passionate about building efficient and scalable web applications. With a strong foundation in <span class="font-medium text-purple-500">HTML, CSS, JavaScript, ReactJS, MongoDB, ExpressJS, NodeJS .</span> I have developed projects like a Student Password-Manager, Patreon Clone etc with secure role-based access. <br><br>
+                    A MERN Stack Developer and B.Tech student, passionate about building efficient and scalable web applications. With a strong foundation in <span class="font-medium text-purple-500">HTML, CSS, JavaScript, ReactJS, MongoDB, ExpressJS, NodeJS.</span> I have developed projects like a Student Password-Manager, Patreon Clone etc with secure role-based access. <br><br>
                     Currently, expanding skills by learning front-end technologies to grow into a Full-Stack Developer. Dedicated to continuously improving and exploring new technologies to create impactful solutions.
                 </p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
-                <div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-lg cursor-pointer hover:bg-gray-50 hover:-translate-y-1 duration-500">
+                <div class="card border rounded-lg px-8 py-12 hover:shadow-lg cursor-pointer hover:-translate-y-1 duration-500">
                     <img src="https://cdn-icons-png.flaticon.com/128/7991/7991055.png" alt="Full Stack Development icon" width="45" height="45">
                     <h3 class="text-lg my-4 text-gray-700">Full Stack development</h3>
                     <p class="text-sm text-gray-600 leading-5">Full-stack development using MERN (MongoDB, Express.js, React.js, Node.js) involves building web applications with a consistent JavaScript stack. MongoDB handles the database, Express.js manages the backend server, React.js develops dynamic front-end user interfaces, and Node.js runs the server environment. Together, MERN simplifies efficient, scalable, and responsive web development processes.</p>
                 </div>
-                <div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-lg cursor-pointer hover:bg-gray-50 hover:-translate-y-1 duration-500">
+                <div class="card border rounded-lg px-8 py-12 hover:shadow-lg cursor-pointer hover:-translate-y-1 duration-500">
                     <img src="https://cdn-icons-png.flaticon.com/128/13191/13191231.png" alt="UI/UX Designer icon" width="40" height="40">
                     <h3 class="text-lg my-4 text-gray-700">UI/UX Designer</h3>
                     <p class="text-sm text-gray-600 leading-5">UI/UX design using Canva and Figma focuses on creating visually appealing and user-friendly interfaces. Canva simplifies graphic design with its intuitive drag-and-drop tools, while Figma offers powerful collaborative features for prototyping and interface design. Together, they streamline designing impactful, responsive, and user-centric digital experiences.</p>
                 </div>
-                <div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-lg cursor-pointer hover:bg-gray-50 hover:-translate-y-1 duration-500">
+                <div class="card border rounded-lg px-8 py-12 hover:shadow-lg cursor-pointer hover:-translate-y-1 duration-500">
                     <img src="https://cdn-icons-png.flaticon.com/128/4661/4661418.png" alt="Frontend/Backend Developer icon" width="40" height="40">
                     <h3 class="text-lg my-4 text-gray-700">Frontend/Backend Developer</h3>
                     <p class="text-sm text-gray-600 leading-5">Full-stack development combines backend technologies like Node.js, Express.js, MongoDB, and Postman with frontend tools like React.js, JavaScript, Tailwind CSS, Bootstrap, and HTML. Together, they enable creating efficient, scalable, secure server-side applications and responsive, interactive, user-friendly interfaces for seamless web experiences.</p>
@@ -169,16 +353,16 @@
             </div>
         </section>
 
-        <hr class="w-11/12 mx-auto my-12 border-gray-200">
-        
+        <hr class="w-11/12 mx-auto my-12">
+
         <section id="work" class="w-full px-4 md:px-12 py-10 scroll-mt-20">
             <h4 class="text-center mb-2 text-lg font-Ovo text-gray-500">My portfolio</h4>
             <h2 class="text-center text-5xl font-Ovo">My latest work</h2>
-            <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo text-gray-700">
+            <p class="text-center max-w-4xl mx-auto mt-5 mb-12 font-Ovo text-gray-700">
                 Welcome to my software development portfolio! Explore my projects that demonstrate expertise in Frontend developer, UI/UX Designer, back-end developer, and responsive web applications, showcasing my journey as a developer.
             </p>
-            <div class="grid grid-cols-1 gap-6 my-10">
-                <div class="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-lg cursor-pointer hover:bg-gray-50 hover:-translate-y-1 duration-500 transition-all">
+            <div class="grid grid-cols-3 gap-6 my-10">
+                <div class="card border rounded-lg px-8 py-12 hover:shadow-lg cursor-pointer hover:-translate-y-1 duration-500 transition-all">
                     <h3 class="text-2xl font-bold mb-4">E-Learning Website for TTU pvt limit.</h3>
                     <p class="text-gray-400 mb-6">
                         A comprehensive system to manage student data, including registration, payment mode, and role-based access for Admin, Teachers, and Students.
@@ -188,11 +372,33 @@
                     </p>
                     <a href="https://github.com/rajkumarchaudhari123/NEXTJS.git" class="text-slate-900 font-semibold hover:underline">Learn More</a>
                 </div>
+
+                <div class="card border rounded-lg px-8 py-12 hover:shadow-lg cursor-pointer hover:-translate-y-1 duration-500 transition-all">
+    <h3 class="text-2xl font-bold mb-4">Figma Design - Construction Website</h3>
+    <p class="text-gray-400 mb-6">
+        Designed a modern and user-friendly construction website UI/UX with clean layouts, responsive design, and intuitive user experience for showcasing services and projects.
+    </p>
+    <p class="text-gray-400 mb-4">
+        <span class="font-semibold">Technologies:-</span> Figma designing tool
+    </p>
+    <a href="/" class="text-slate-900 font-semibold hover:underline">Learn More</a>
+</div>
+
+<div class="card border rounded-lg px-8 py-12 hover:shadow-lg cursor-pointer hover:-translate-y-1 duration-500 transition-all">
+    <h3 class="text-2xl font-bold mb-4">Dream Resume - Resume Builder</h3>
+    <p class="text-gray-400 mb-6">
+        Developed a responsive resume builder platform that helps users create professional resumes with customizable templates and an easy-to-use interface.
+    </p>
+    <p class="text-gray-400 mb-4">
+        <span class="font-semibold">Technologies:-</span> Next.js, MongoDB, FastAPI etc..
+    </p>
+    <a href="/" class="text-slate-900 font-semibold hover:underline">Learn More</a>
+</div>
             </div>
         </section>
 
-        <hr class="w-11/12 mx-auto my-12 border-gray-200">
-        
+        <hr class="w-11/12 mx-auto my-12">
+
         <section id="contact" class="w-full px-4 md:px-12 py-10 scroll-mt-20">
             <h4 class="text-center mb-2 text-lg font-Ovo text-gray-500">Connected with me</h4>
             <h2 class="text-center text-5xl font-Ovo">Get in touch</h2>
@@ -225,7 +431,7 @@
             </div>
         </section>
     </main>
-    
+
     <footer class="mt-20 px-4 md:px-12 py-6">
         <div class="text-center">
             <a href="#top" class="text-xl font-bold">
@@ -236,12 +442,46 @@
                 developertusharpatel@gmail.com
             </div>
         </div>
-        <div class="text-center sm:flex items-center justify-between border-t border-gray-400 mx-auto max-w-[80%] my-12 py-6 text-gray-500">
+        <div class="text-center sm:flex items-center justify-between border-t mx-auto max-w-[80%] my-12 py-6 text-gray-500">
             <p>&copy; 2025 Tushar Patel. All rights reserved.</p>
         </div>
     </footer>
 
-  <script src="/script.js"></script>
+    <script>
+        // ── THEME TOGGLE ──
+        const html = document.documentElement;
+        const navIcon = document.getElementById('navIcon');
+        const navLabel = document.getElementById('navLabel');
+        const floatingToggle = document.getElementById('floatingToggle');
+
+        // Restore saved theme
+        const saved = localStorage.getItem('theme') || 'light';
+        applyTheme(saved);
+
+        function toggleTheme() {
+            const current = html.getAttribute('data-theme');
+            applyTheme(current === 'light' ? 'dark' : 'light');
+        }
+
+        function applyTheme(theme) {
+            html.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            if (theme === 'dark') {
+                navLabel.textContent = 'Light';
+            } else {
+                navLabel.textContent = 'Dark';
+            }
+        }
+
+        // ── MOBILE MENU ──
+        function openMenu() {
+            document.getElementById('sideMenu').classList.remove('translate-x-full');
+            document.getElementById('sideMenu').classList.add('flex');
+        }
+        function closeMenu() {
+            document.getElementById('sideMenu').classList.add('translate-x-full');
+        }
+    </script>
 </body>
 
 </html>
